@@ -1,4 +1,4 @@
-# My Universal React Project
+# Menu Masters 2.0
 
 <p>
   <!-- iOS -->
