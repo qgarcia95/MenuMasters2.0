@@ -4,10 +4,10 @@ CPSC 362 -- CSUF
 GROUP PROJECT
 
 MEMBERS:
-Alexander Au
-Jeffery Nong
-Javier Canedo
-Edgar Lara
+Alexander Au, 
+Jeffery Nong, 
+Javier Canedo, 
+Edgar Lara, 
 Quauhtli Garcia-Brindis
 
 <p>
