@@ -1,5 +1,15 @@
 # Menu Masters 2.0
 
+CPSC 362 -- CSUF
+GROUP PROJECT
+
+MEMBERS:
+Alexander Au
+Jeffery Nong
+Javier Canedo
+Edgar Lara
+Quauhtli Garcia-Brindis
+
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
