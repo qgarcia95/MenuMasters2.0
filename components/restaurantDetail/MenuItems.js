@@ -1,126 +1,171 @@
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
 import React from 'react'
-import { Divider } from 'react-native-elements'
-import BouncyCheckbox from 'react-native-bouncy-checkbox'
+import { Divider } from 'react-native-elements';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { useDispatch, useSelector } from 'react-redux';
 
 const foods = [
     {
-        title: "Lasagna",
-        description: "Served with butter lettuce, tomato and sauce bechamel.",
-        price: "$13.50",
-        image: "https://www.cookingclassy.com/wp-content/uploads/2013/03/lasagna15.jpg",
+        title: "Gyoza",
+        description: "Beef Fried dumpling, 6 pieces.",
+        price: "$6.85",
+        image: 
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI1_3eoiuRq2fXuCd9qyptrNpdRPjzEOBYjg&usqp=CAU",
+
+    },
+
+    {
+        title: "Poke Salad",
+        description: "Deep-fried jalapeno with spicy tuna and cream cheese",
+        price: "$14.30",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/95WwIf1JZxMzs1WePA9LVg/180s.jpg",
+
     },
     {
-        title: "Tandoori Chicken",
-        description: "Amazing Indian dish with tenderloin chicken off the bone, with a spicy sauce and a touch of cream.",
-        price: "$19.20",
-        image: "https://veenaazmanov.com/wp-content/uploads/2021/04/Easy-Tandoori-Chicken-Recipe-11.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Chilaquiles",
-        description: "Chilaquiles are a Mexican dish made with flour tortillas, a filling of ground beef, and a variety of other ingredients.",
-        price: "$14.50",
-        image: "https://img.taste.com.au/p1e9wwJq/taste/2018/02/breakfast-chilaquiles-135402-1.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Salad",
-        description: "Fresh garden salad with tomatoes, cucumbers, and fresh herbs.",
-        price: "$10.50",
-        image: "https://www.thespruceeats.com/thmb/r83ZPDHz-iy2VjRJMAf6ya3S-7A=/2500x1406/smart/filters:no_upscale()/perfectgreensalad2500-5993ab28c412440011db26df.jpg",
-    },{
-        title: "Lasagna",
-        description: "Served with butter lettuce, tomato and sauce bechamel.",
-        price: "$13.50",
-        image: "https://www.cookingclassy.com/wp-content/uploads/2013/03/lasagna15.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Tandoori Chicken",
-        description: "Amazing Indian dish with tenderloin chicken off the bone, with a spicy sauce and a touch of cream.",
-        price: "$19.20",
-        image: "https://veenaazmanov.com/wp-content/uploads/2021/04/Easy-Tandoori-Chicken-Recipe-11.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Chilaquiles",
-        description: "Chilaquiles are a Mexican dish made with flour tortillas, a filling of ground beef, and a variety of other ingredients.",
-        price: "$14.50",
-        image: "https://img.taste.com.au/p1e9wwJq/taste/2018/02/breakfast-chilaquiles-135402-1.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Salad",
-        description: "Fresh garden salad with tomatoes, cucumbers, and fresh herbs.",
-        price: "$10.50",
-        image: "https://www.thespruceeats.com/thmb/r83ZPDHz-iy2VjRJMAf6ya3S-7A=/2500x1406/smart/filters:no_upscale()/perfectgreensalad2500-5993ab28c412440011db26df.jpg",
-    },{
-        title: "Lasagna",
-        description: "Served with butter lettuce, tomato and sauce bechamel.",
-        price: "$13.50",
-        image: "https://www.cookingclassy.com/wp-content/uploads/2013/03/lasagna15.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Tandoori Chicken",
-        description: "Amazing Indian dish with tenderloin chicken off the bone, with a spicy sauce and a touch of cream.",
-        price: "$19.20",
-        image: "https://veenaazmanov.com/wp-content/uploads/2021/04/Easy-Tandoori-Chicken-Recipe-11.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
     {
-        title: "Chilaquiles",
-        description: "Chilaquiles are a Mexican dish made with flour tortillas, a filling of ground beef, and a variety of other ingredients.",
-        price: "$14.50",
-        image: "https://img.taste.com.au/p1e9wwJq/taste/2018/02/breakfast-chilaquiles-135402-1.jpg",
+        title: "Rainbow Roll",
+        description: "Assorted fish on cali.",
+        price: "$16.00",
+        image: 
+        "https://s3-media0.fl.yelpcdn.com/bphoto/XeIYrnYyV9bwFq86xq5MUw/180s.jpg",
+
     },
-    {
-        title: "Salad",
-        description: "Fresh garden salad with tomatoes, cucumbers, and fresh herbs.",
-        price: "$10.50",
-        image: "https://www.thespruceeats.com/thmb/r83ZPDHz-iy2VjRJMAf6ya3S-7A=/2500x1406/smart/filters:no_upscale()/perfectgreensalad2500-5993ab28c412440011db26df.jpg",
-    },
-]
+];
+
+
+
 const styles = StyleSheet.create({
     menuItemStyle: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: "row",
+        justifyContent: "space-between",
         margin: 20,
     },
 
     titleStyle: {
         fontSize: 19,
-        fontWeight: 'bold',
-    },
-})
+        fontWeight: "bold",
 
-export default function MenuItems() {
+    }
+});
+
+export default function MenuItems({restaurantName}) {
+const dispatch = useDispatch();
+
+const selectItem = (item,checkboxValue) => 
+    dispatch({
+        type: "ADD_TO_CART",
+        payload: {
+            ...item, 
+            restaurantName: restaurantName,
+            checkboxValue: checkboxValue,
+        },
+      });
+
+      const cartItems = useSelector(
+          (state) => state.cartReducer.selectedItems.items
+          );
+
+      const isFoodInCart = (food,cartItems) => 
+        Boolean(cartItems.find((item) => item.title == food.title));
+      
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>  
-        {foods.map((food, index) => (
-            <View key={index}>
-                <View style={styles.menuItemStyle}>
-                    <BouncyCheckbox
-                        iconStyle={{borderColor: "lightgray", borderRadius: 0}}
-                        fillColor="green"
-                    />
-                    <FoodInfo food={food}/>
-                    <FoodImage food={food}/>
-                </View>
-                <Divider width={2} orientation="vertical" style={{marginHorizontal: 20}} />
-            </View>
-        ))}
-    </ScrollView>
-  )
+<ScrollView showsVerticalScrollIndicator={false}> 
+    {foods.map((food, index) => (
+    <View key={index}>
+      <View style={styles.menuItemStyle}>
+      {/* <Text>Menu Item</Text> */}
+        <BouncyCheckbox 
+        iconStyle={{borderColor: "gray", borderRadius: 0}}
+        fillColor="green"
+        onPress={(checkboxValue) => selectItem(food,checkboxValue)}
+        isChecked={isFoodInCart(food,cartItems)}
+        />
+        <FoodInfo food={food} /> 
+        <FoodImage food={food} /> 
+     </View>
+     <Divider
+        width={0.5}
+        orientation="vertical" 
+        // style={{marginHorizontal: 20}}
+    />
+    </View>
+    ))}
+</ScrollView>  
+);
 }
 
-
 const FoodInfo = (props) => (
-    <View style={{width: 240, justifyContent: "space-evenly"}}>
+    
+    <View style= {{width: 240, justifyContent: "space-evenly"}}>
         <Text style={styles.titleStyle}>{props.food.title}</Text>
         <Text>{props.food.description}</Text>
         <Text>{props.food.price}</Text>
     </View>
-)
+    
+);
 
 const FoodImage = (props) => (
     <View>
-        <Image 
-            source={{uri: props.food.image}} 
-            style={{width: 100, height: 100, borderRadius: 8}}/>
+        <Image
+            source={{uri: props.food.image}}
+            style={{width: 100, height: 100, borderRadius: 8}}
+        />
     </View>
 )
